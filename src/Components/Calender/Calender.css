@@ -1,0 +1,29 @@
+.CalenderPart {
+	width: 400px;
+	margin: 0 auto;
+}
+.calendar-day {
+	background-color: #ffffff;
+}
+.week-day {
+	color: black;
+	width: 50px;
+	margin: 15px 10px;
+}
+.calendar-day {
+	color: #4d4d4d;
+	height: 45px;
+	margin: 10px 0;
+	text-align: center;
+}
+
+.today {
+	border-radius: 24px;
+	background-color: #ee2c74;
+	color: white;
+}
+.monthName {
+	text-align: center;
+	font-size: 23px;
+	color: rgb(44, 44, 44);
+}

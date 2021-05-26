@@ -1,0 +1,73 @@
+.calculatorPart {
+	display: flex;
+	justify-content: space-around;
+	padding: 20px;
+}
+
+.periodDatePicker,
+.LastPeriodLongTime,
+.MenstrualCycle {
+	width: 300px;
+	padding: 0 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.headerStyle {
+	background-color: black;
+	position: relative;
+	font-size: 30px;
+	width: 44px;
+	height: 44px;
+	border-radius: 22px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.headerText {
+	color: white;
+	z-index: 1;
+}
+.tittle {
+	color: black;
+	font-size: 21px;
+}
+.btn-Box {
+	background-color: black;
+	color: gray;
+	width: 250px;
+	padding: 10px 15px;
+	border-radius: 30px;
+	font-size: 19px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 0px;
+	font-size: 25px;
+	align-items: center;
+	cursor: unset;
+}
+.plus {
+	height: 100%;
+	width: 50px;
+	padding: 3px;
+	font-weight: bold;
+	background-color: #ed0c65;
+	color: white;
+	cursor: pointer;
+}
+.minus {
+	height: 100%;
+	width: 50px;
+	padding: 3px;
+	font-weight: bold;
+	background-color: #ed0c65;
+	color: white;
+	cursor: pointer;
+}

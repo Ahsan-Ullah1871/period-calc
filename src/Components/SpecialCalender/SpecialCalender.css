@@ -1,0 +1,8 @@
+.calenderHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	font-size: 23px;
+	color: rgb(44, 44, 44);
+}
