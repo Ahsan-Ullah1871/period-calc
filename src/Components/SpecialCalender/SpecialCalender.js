@@ -4,7 +4,7 @@ import moment from "moment";
 
 const SpecialCalender = () => {
 	let weekdayshort = moment.weekdaysShort();
-	const [dateObject, setDateObject] = useState(moment("25 May"));
+	const [dateObject, setDateObject] = useState(moment());
 
 	const firstDayOfMonth = () => {
 		let firstDay = moment(dateObject).startOf("month").format("d");
@@ -18,17 +18,14 @@ const SpecialCalender = () => {
 	};
 
 	const onPrev = () => {
-		console.log("j");
-		let curr = "month";
-
-		setDateObject(moment().subtract(1, curr));
+		setDateObject(moment().subtract(1, "month"));
 	};
 	const onNext = () => {
 		let curr = "month";
 
-		setDateObject(moment().add(1, curr));
+		setDateObject(moment().add(1, "month"));
 	};
-
+	console.log(dateObject);
 	let blanks = [];
 	for (let i = 0; i < firstDayOfMonth(); i++) {
 		blanks.push(<td className="calendar-day empty">{""}</td>);
@@ -64,14 +61,14 @@ const SpecialCalender = () => {
 				<div className="calenderHeader">
 					<div
 						className="previous"
-						onClick={(e) => onPrev()}
+						onClick={() => onPrev()}
 					>
 						Prev
 					</div>
 					<div className="month">{month()}</div>
 					<div
 						className="next"
-						onClick={(e) => onNext()}
+						onClick={() => onNext()}
 					>
 						Next
 					</div>

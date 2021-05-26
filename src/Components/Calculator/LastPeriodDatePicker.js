@@ -16,7 +16,7 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-const LastPeriodDatePicker = () => {
+const LastPeriodDatePicker = ({ selectedTime, setSelectedTime }) => {
 	const datePicker = () => {};
 	var subtitle;
 	const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -44,7 +44,10 @@ const LastPeriodDatePicker = () => {
 				style={customStyles}
 				contentLabel="Example Modal"
 			>
-				<Calender />
+				<Calender
+					selectedTime={selectedTime}
+					setSelectedTime={setSelectedTime}
+				/>
 			</Modal>
 		</div>
 	);

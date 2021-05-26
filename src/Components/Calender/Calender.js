@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Calender.css";
 import moment from "moment";
 
-const Calender = () => {
+const Calender = ({ selectedTime, setSelectedTime }) => {
 	let weekdayshort = moment.weekdaysShort();
 	const [dateObject, setDateObject] = useState(moment());
 	const [selectedDate, setSelectedDate] = useState(dateObject.format("D"));
@@ -26,8 +26,8 @@ const Calender = () => {
 	const onDayClick = (e, d, month) => {
 		setSelectedDate(d);
 		setSelectedMonth(month);
+		setSelectedTime(d, month);
 	};
-	console.log("SELECTED DAY: ", selectedDate, selectedMonth);
 
 	let blanks = [];
 	for (let i = 0; i < firstDayOfMonth(); i++) {

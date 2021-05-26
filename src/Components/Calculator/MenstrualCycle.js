@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const MenstrualCycle = () => {
-	const [menstrualCycleCount, setMenstrualCycleCount] = useState(1);
+const MenstrualCycle = ({ menstrualCycleCount, setMenstrualCycleCount }) => {
 	const minus = () => {
 		if (menstrualCycleCount > 1) {
 			setMenstrualCycleCount(menstrualCycleCount - 1);

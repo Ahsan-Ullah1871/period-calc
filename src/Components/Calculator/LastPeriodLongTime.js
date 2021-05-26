@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const LastPeriodLongTime = () => {
-	const [timeCount, setTimeCount] = useState(1);
+const LastPeriodLongTime = ({ timeCount, setTimeCount }) => {
 	const minus = () => {
 		if (timeCount > 1) {
 			setTimeCount(timeCount - 1);
