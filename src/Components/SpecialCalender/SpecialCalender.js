@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./SpecialCalender.css";
 import moment from "moment";
 
-const SpecialCalender = () => {
+const SpecialCalender = ({ selectedTime, timeCount, menstrualCycleCount }) => {
 	let weekdayshort = moment.weekdaysShort();
-	const [dateObject, setDateObject] = useState(moment());
+	const [dateObject, setDateObject] = useState(
+		moment(`${selectedTime.d + selectedTime.month}`)
+	);
 
 	const firstDayOfMonth = () => {
 		let firstDay = moment(dateObject).startOf("month").format("d");
@@ -32,8 +34,16 @@ const SpecialCalender = () => {
 	}
 	let daysInMonthBox = [];
 	for (let d = 1; d <= daysInMonth(); d++) {
+		const periodDay =
+			d == selectedTime.d ||
+			(d > selectedTime.d && d <= selectedTime.d + timeCount - 1)
+				? "period-day"
+				: "";
 		daysInMonthBox.push(
-			<td key={d} className={`calendar-day  `}>
+			<td
+				key={d}
+				className={`special-calendar-day  ${periodDay}`}
+			>
 				{d}
 			</td>
 		);
@@ -43,17 +53,19 @@ const SpecialCalender = () => {
 	let cells = [];
 	totalSlots.forEach((row, i) => {
 		if (i % 7 !== 0) {
-			cells.push(row); // if index not equal 7 that means not go to next week
+			cells.push(row);
 		} else {
-			rows.push(cells); // when reach next week we contain all td in last week to rows
-			cells = []; // empty container
-			cells.push(row); // in current loop we still push current row to new container
+			rows.push(cells);
+			cells = [];
+			cells.push(row);
 		}
 		if (i === totalSlots.length - 1) {
 			// when end loop we add remain date
 			rows.push(cells);
 		}
 	});
+
+	console.log(selectedTime, timeCount, menstrualCycleCount);
 
 	return (
 		<>

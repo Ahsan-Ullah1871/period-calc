@@ -36,7 +36,9 @@ const LastPeriodDatePicker = ({ selectedTime, setSelectedTime }) => {
 				<p>When was the first day of your last period?</p>
 			</div>
 			<div className="btn-Box" onClick={openModal}>
-				Date of last period
+				{selectedTime
+					? `${selectedTime.d + selectedTime.month}`
+					: "Date of last period"}
 			</div>
 			<Modal
 				isOpen={modalIsOpen}
@@ -47,6 +49,7 @@ const LastPeriodDatePicker = ({ selectedTime, setSelectedTime }) => {
 				<Calender
 					selectedTime={selectedTime}
 					setSelectedTime={setSelectedTime}
+					closeModal={closeModal}
 				/>
 			</Modal>
 		</div>

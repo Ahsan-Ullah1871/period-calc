@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Calender.css";
 import moment from "moment";
 
-const Calender = ({ selectedTime, setSelectedTime }) => {
+const Calender = ({ selectedTime, setSelectedTime, closeModal }) => {
 	let weekdayshort = moment.weekdaysShort();
 	const [dateObject, setDateObject] = useState(moment());
 	const [selectedDate, setSelectedDate] = useState(dateObject.format("D"));
@@ -26,8 +26,9 @@ const Calender = ({ selectedTime, setSelectedTime }) => {
 	const onDayClick = (e, d, month) => {
 		setSelectedDate(d);
 		setSelectedMonth(month);
-		setSelectedTime(d, month);
+		setSelectedTime({ d, month });
 	};
+	console.log("SELECTED DAY: ", selectedDate, selectedMonth);
 
 	let blanks = [];
 	for (let i = 0; i < firstDayOfMonth(); i++) {
@@ -37,14 +38,14 @@ const Calender = ({ selectedTime, setSelectedTime }) => {
 	for (let d = 1; d <= daysInMonth(); d++) {
 		let CurrentDay = d == selectedDate ? "today" : "";
 		daysInMonthBox.push(
-			<td key={d} className={`calendar-day ${CurrentDay}`}>
-				<span
-					onClick={(e) => {
-						onDayClick(e, d, month());
-					}}
-				>
-					{d}
-				</span>
+			<td
+				key={d}
+				className={`calendar-day ${CurrentDay}`}
+				onClick={(e) => {
+					onDayClick(e, d, month());
+				}}
+			>
+				<span>{d}</span>
 			</td>
 		);
 	}
@@ -89,6 +90,9 @@ const Calender = ({ selectedTime, setSelectedTime }) => {
 					})}
 				</tbody>
 			</table>
+			<button className="closeBtn" onClick={() => closeModal()}>
+				Done
+			</button>
 		</div>
 	);
 };

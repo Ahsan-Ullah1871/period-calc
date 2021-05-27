@@ -71,3 +71,20 @@
 	color: white;
 	cursor: pointer;
 }
+
+/* getResultBtn */
+.getResultBtn {
+	background-color: #a4a4a4;
+	min-width: 150px;
+	padding: 10px 25px;
+	border-radius: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	outline: none;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+}
